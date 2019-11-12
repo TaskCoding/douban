@@ -1,5 +1,5 @@
 {
-	"description": "项目配置文件。",
+	"description": "豆瓣电影小程序云开发版本",
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
@@ -8,8 +8,8 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.1",
-	"appid": "wxb9eb22375e8789a7",
+	"libVersion": "2.9.3",
+	"appid": "",
 	"projectname": "douban",
 	"isGameTourist": false,
 	"simulatorType": "wechat",
