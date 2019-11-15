@@ -1,4 +1,6 @@
 {
+  "miniprogramRoot": "mini/",
+  "cloudfunctionRoot": "cloudfunctions/",
 	"description": "豆瓣电影小程序云开发版本",
 	"setting": {
 		"urlCheck": true,
