@@ -18,6 +18,12 @@ const douban = require('./utils/douban.js')
  */
 const baidu = require('./utils/baidu.js')
 
+/**
+ * Database API 模块, 封装了数据库的基本操作
+ * @type {Object}
+ */
+const database = require('./utils/database.js');
+
 App({
   /**
    * Global shared
@@ -43,6 +49,10 @@ App({
    * Baidu API
    */
   baidu: baidu,
+  /**
+   * database reference
+   */
+  database: database,
 
   /**
    * 生命周期函数--监听小程序初始化
