@@ -51,3 +51,10 @@
   z-index: -1000;
   opacity: .1;
 }
+.favorite{
+  position: fixed;
+  top: 30rpx;
+  right: 30rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
