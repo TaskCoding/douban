@@ -51,3 +51,19 @@
   z-index: -1000;
   opacity: .1;
 }
+
+.collect {
+  margin-top: 10px;
+  height: 30px;
+  font-size: 14px;
+  width: 100px;
+  color: white;
+  background-color: #fc2d2d;
+  line-height: 30px;
+}
+
+.collected {
+  color: #fc2d2d;
+  border: 1px solid #fc2d2d;
+  background-color: #fdeaea;
+}

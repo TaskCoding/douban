@@ -7,6 +7,7 @@
       <text class="info">评分：{{ movie.rating.average }}</text>
       <text class="info">导演：<block wx:for="{{ movie.directors }}" wx:key="id"> {{ item.name }} </block></text>
       <text class="info">主演：<block wx:for="{{ movie.casts }}" wx:key="id"> {{ item.name }} </block></text>
+      <button class="collect {{collected?'collected':''}}" bindtap="tocollected">{{collected?'已收藏':'收藏'}}</button>
     </view>
     <view class="summary">
       <text class="label">摘要：</text>

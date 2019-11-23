@@ -7,6 +7,12 @@
 const wechat = require('./utils/wechat.js')
 
 /**
+ * 云开发数据库操作模块
+ * 封装数据库操作业务函数
+ */
+const clouddb = require('./utils/database.js')
+
+/**
  * Douban API 模块
  * @type {Object}
  */
@@ -45,6 +51,11 @@ App({
   baidu: baidu,
 
   /**
+   * Clouddb
+   */
+  clouddb:clouddb,
+
+  /**
    * 生命周期函数--监听小程序初始化
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
@@ -54,6 +65,11 @@ App({
     } else {
       wx.cloud.init({});
     }
+
+    clouddb.inituser().then(res=>{
+      this.data.collected=res.collected;
+      this.data.userid=res.userid;
+    });
 
     wechat
       .getLocation()

@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    collected: false,
     title: '',
     movie: {}
   },
@@ -19,8 +20,12 @@ Page({
 
     app.douban.findOne(params.id)
       .then(d => {
-        this.setData({ title: d.title, movie: d })
         wx.setNavigationBarTitle({ title: d.title + ' « 电影 « 豆瓣' })
+        var collected=false;
+        if (app.data.collected.indexOf(d.id)!=-1){
+          collected = true;
+        }
+        this.setData({ title: d.title, movie: d ,collected:collected})
         wx.hideLoading()
       })
       .catch(e => {
@@ -35,6 +40,34 @@ Page({
    */
   onReady () {
     wx.setNavigationBarTitle({ title: this.data.title + ' « 电影 « 豆瓣' })
+  },
+
+  tocollected(){
+    wx.showLoading({
+      title: '操作中',
+    })
+    if(this.data.collected==false){
+      app.clouddb.docollect(this.data.movie.id,app.data.userid).then(res => {
+        if (res.collected.indexOf(this.data.movie.id) != -1) {
+          this.setData({
+            collected: true
+          })
+        }
+        app.data.collected = res.collected;
+        wx.hideLoading();
+      })
+    }
+    else{
+      app.clouddb.cancelcollect(this.data.movie.id, app.data.userid).then(res => {
+        if (res.collected.indexOf(this.data.movie.id) == -1) {
+          this.setData({
+            collected: false
+          })
+        }
+        app.data.collected = res.collected;
+        wx.hideLoading();
+      })
+    }
   },
 
   onShareAppMessage () {
